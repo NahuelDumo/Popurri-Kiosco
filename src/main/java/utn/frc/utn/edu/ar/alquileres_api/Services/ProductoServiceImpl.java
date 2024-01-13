@@ -45,7 +45,8 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     public List<ProductoResponseDto> all() {
-        return productoRepository.findAll().stream().map(a -> productoResponseMapper.apply(a)).toList();
+        List<Producto> productosOrdenados = productoRepository.findAll(Sort.by(Sort.Direction.ASC, "nombre"));
+        return productosOrdenados.stream().map(a -> productoResponseMapper.apply(a)).toList();    
     }
 
     @Override
