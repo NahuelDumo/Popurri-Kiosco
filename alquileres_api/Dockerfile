@@ -1,5 +1,5 @@
 # Usar una imagen base con JDK 11 y Maven
-FROM maven:3.8.4-openjdk-11 AS build
+FROM maven:4.0.0-openjdk-17 AS build
 
 # Establecer un directorio de trabajo
 WORKDIR /app
@@ -10,14 +10,14 @@ COPY . /app
 # Ejecutar Maven para construir el proyecto
 RUN mvn clean package
 
-# Crear una nueva imagen basada en OpenJDK 11
-FROM openjdk:11-jre-slim-buster
+# Crear una nueva imagen basada en OpenJDK 17
+FROM openjdk:17-jre-slim-buster
 
 # Exponer el puerto que utilizará la aplicación
 EXPOSE 8081
 
 # Copiar el archivo JAR construido desde la etapa anterior
-COPY --from=build /alquileres_api/target/alquileres_api-0.0.1-SNAPSHOT.jar /alquileres_api/alquileres_api-0.0.1-SNAPSHOT.jar
+COPY --from=build /app/target/alquileres_api-0.0.1-SNAPSHOT.jar /app/alquileres_api-0.0.1-SNAPSHOT.jar
 
 # Establecer el punto de entrada para ejecutar la aplicación
 ENTRYPOINT ["java", "-jar", "/app/alquileres_api-0.0.1-SNAPSHOT.jar"]
