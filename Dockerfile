@@ -11,7 +11,7 @@ RUN git clone https://github.com/NahuelDumo/Popurri-Kiosco.git .
 RUN mvn clean package
 
 # Etapa de producción
-FROM openjdk:17-jre-slim-buster
+FROM openjdk:17-jdk-slim-buster
 
 # Establecer un directorio de trabajo
 WORKDIR /app
