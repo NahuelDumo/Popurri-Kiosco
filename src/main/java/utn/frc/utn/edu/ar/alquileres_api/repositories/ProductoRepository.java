@@ -12,15 +12,15 @@ import java.util.Optional;
 
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
-    @Query("SELECT a FROM Producto a WHERE a.precio >= :costo")
+    @Query("SELECT a FROM Producto a WHERE a.precio >= :costo ORDER BY a.precio")
     List<Producto> findAllByCostoGreaterThan(Float costo);
 
-    @Query("SELECT a FROM Producto a WHERE a.nombre = :nombre")
+    @Query("SELECT a FROM Producto a WHERE a.nombre = :nombre ")
     Producto findByName(String nombre);
 
-    @Query("SELECT a FROM Producto a WHERE a.nombre like %:nombre%")
+    @Query("SELECT a FROM Producto a WHERE a.nombre like %:nombre% ORDER BY a.nombre")
     List<Producto> findAllByName(String nombre);
 
-    @Query("SELECT a FROM Producto a WHERE a.tipo = :tipoProducto")
+    @Query("SELECT a FROM Producto a WHERE a.tipo = :tipoProducto ORDER BY a.nombre")
     List<Producto> findallByTipoProducto(String tipoProducto);
 }
