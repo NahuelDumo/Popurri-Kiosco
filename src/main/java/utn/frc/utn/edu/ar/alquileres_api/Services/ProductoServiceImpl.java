@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 import utn.frc.utn.edu.ar.alquileres_api.Controller.Response.ProductoResponseDto;
 import utn.frc.utn.edu.ar.alquileres_api.Services.Mappers.ProductoResponseMapper;
 import utn.frc.utn.edu.ar.alquileres_api.entidades.Producto;
-import utn.frc.utn.edu.ar.alquileres_api.exceptions.ResourceNotFoundException;
 import utn.frc.utn.edu.ar.alquileres_api.repositories.ProductoRepository;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
@@ -31,11 +31,10 @@ public class ProductoServiceImpl implements ProductoService {
 
     private Producto crearProducto(String nombre,  Float precio , String tipo) {
 
-        Producto producto = new Producto(nombre,  precio, tipo);
-
-        return producto;
+        return new Producto(nombre,  precio, tipo);
 
     }
+
 
 
     public List<ProductoResponseDto> alquilerFiltroCosto(Float costo){
