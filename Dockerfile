@@ -5,7 +5,7 @@ FROM maven:3.8.4-openjdk-11 AS build
 WORKDIR /app
 
 # Copiar archivos de tu proyecto al directorio de trabajo
-COPY alquileres_api /app
+COPY Popurri-Kiosco /app
 
 # Ejecutar Maven para construir el proyecto
 RUN mvn clean package
