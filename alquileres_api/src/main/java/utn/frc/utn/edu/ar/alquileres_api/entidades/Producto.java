@@ -5,18 +5,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.security.Identity;
+
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "PRODUCTO")
+@Table(name = "Producto")
 public class Producto {
     @Id
-    @GeneratedValue(generator = "PRODUCTO")
-    @TableGenerator(name = "PRODUCTO", table = "sqlite_sequence",
-            pkColumnName = "name", valueColumnName = "seq",
-            pkColumnValue="PRODUCTO",
-            initialValue=1, allocationSize=1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
 
