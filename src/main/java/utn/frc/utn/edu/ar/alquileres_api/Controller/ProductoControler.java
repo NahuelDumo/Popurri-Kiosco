@@ -43,7 +43,7 @@ public class ProductoControler {
 
     @PutMapping()
     public ResponseEntity<ProductoResponseDto> Modificar(@RequestBody ProductoRequestDto dto) {
-        ProductoResponseDto response = productoService.modificar(dto.getNombre(), dto.getPrecio());
+        ProductoResponseDto response = productoService.modificar(dto.getNombre(), dto.getPrecio(), dto.getStock());
         return new ResponseEntity<ProductoResponseDto>(response, HttpStatusCode.valueOf(201));
 
     }

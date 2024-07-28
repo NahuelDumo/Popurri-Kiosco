@@ -49,9 +49,10 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    public ProductoResponseDto modificar(String nombre , Float precio) {
+    public ProductoResponseDto modificar(String nombre , Float precio, int stock) {
         Producto producto = productoRepository.findByName(nombre);
         producto.setPrecio(precio);
+        producto.setStock(stock);
         productoRepository.save(producto);
         return productoResponseMapper.apply(producto);
     }

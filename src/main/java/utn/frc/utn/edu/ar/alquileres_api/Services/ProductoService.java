@@ -2,7 +2,6 @@ package utn.frc.utn.edu.ar.alquileres_api.Services;
 
 
 import utn.frc.utn.edu.ar.alquileres_api.Controller.Response.ProductoResponseDto;
-import utn.frc.utn.edu.ar.alquileres_api.entidades.Producto;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ public interface ProductoService {
 
     List<ProductoResponseDto> all();
 
-    public ProductoResponseDto modificar(String nombre,Float precio);
+    public ProductoResponseDto modificar(String nombre,Float precio, int stock);
 
     public List<ProductoResponseDto>allName(String nombre);
 
