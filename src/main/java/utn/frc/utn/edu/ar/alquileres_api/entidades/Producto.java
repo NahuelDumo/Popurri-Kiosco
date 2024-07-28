@@ -27,11 +27,15 @@ public class Producto {
     @Column(name = "Precio")
     private Float precio;
 
+    @Column(name = "Stock")
+    private int stock;
 
-    public Producto(String nombre, Float precio, String tipo) {
+
+    public Producto(String nombre, Float precio, String tipo, int stock) {
         setNombre(nombre);
         setTipo(tipo);
         setPrecio(precio);
+        setStock(stock);
     }
 }
 

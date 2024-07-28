@@ -20,7 +20,7 @@ public class ProductoControler {
 
     @PostMapping()
     public ResponseEntity<ProductoResponseDto> add(@RequestBody ProductoRequestDto dto) {
-        ProductoResponseDto response = productoService.add(dto.getNombre(), dto.getPrecio(), dto.getTipo());
+        ProductoResponseDto response = productoService.add(dto.getNombre(), dto.getPrecio(), dto.getTipo(), dto.getStock());
         return new ResponseEntity<ProductoResponseDto>(response, HttpStatusCode.valueOf(201));
 
     }

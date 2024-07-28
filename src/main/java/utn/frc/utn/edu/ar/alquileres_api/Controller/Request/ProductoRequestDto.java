@@ -13,5 +13,6 @@ public class ProductoRequestDto {
     String nombre;
     String tipo;
     Float precio;
+    int stock;
 
 }

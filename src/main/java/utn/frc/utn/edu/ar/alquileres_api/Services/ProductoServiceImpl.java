@@ -21,17 +21,17 @@ public class ProductoServiceImpl implements ProductoService {
 
 
     @Override
-    public ProductoResponseDto add(String nombre, Float precio, String tipo) {
+    public ProductoResponseDto add(String nombre, Float precio, String tipo, int stock) {
 
-        Producto producto = crearProducto(nombre, precio, tipo);
+        Producto producto = crearProducto(nombre, precio, tipo, stock);
         Producto creado = productoRepository.save(producto);
         return productoResponseMapper.apply(creado);
 
     }
 
-    private Producto crearProducto(String nombre,  Float precio , String tipo) {
+    private Producto crearProducto(String nombre,  Float precio , String tipo, int stock) {
 
-        return new Producto(nombre,  precio, tipo);
+        return new Producto(nombre,  precio, tipo, stock);
 
     }
 
