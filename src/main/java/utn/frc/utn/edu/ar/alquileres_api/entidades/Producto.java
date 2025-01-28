@@ -27,7 +27,7 @@ public class Producto {
     @Column(name = "Precio")
     private Float precio;
 
-    @Column(name = "precioDeLista")
+    @Column(name = "preciodelista")
     private Float precioDeLista;
 
     @Column(name = "Stock")
