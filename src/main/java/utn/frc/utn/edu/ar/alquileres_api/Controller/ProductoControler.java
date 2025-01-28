@@ -20,7 +20,7 @@ public class ProductoControler {
 
     @PostMapping()
     public ResponseEntity<ProductoResponseDto> add(@RequestBody ProductoRequestDto dto) {
-        ProductoResponseDto response = productoService.add(dto.getNombre(), dto.getPrecio(), dto.getTipo(), dto.getStock());
+        ProductoResponseDto response = productoService.add(dto.getNombre(), dto.getPrecio(), dto.getTipo(), dto.getStock(), dto.getPrecioDeLista());
         return new ResponseEntity<ProductoResponseDto>(response, HttpStatusCode.valueOf(201));
 
     }
@@ -43,7 +43,7 @@ public class ProductoControler {
 
     @PutMapping()
     public ResponseEntity<ProductoResponseDto> Modificar(@RequestBody ProductoRequestDto dto) {
-        ProductoResponseDto response = productoService.modificar(dto.getNombre(), dto.getPrecio(), dto.getStock());
+        ProductoResponseDto response = productoService.modificar(dto.getNombre(), dto.getPrecio(), dto.getStock(), dto.getPrecioDeLista());
         return new ResponseEntity<ProductoResponseDto>(response, HttpStatusCode.valueOf(201));
 
     }

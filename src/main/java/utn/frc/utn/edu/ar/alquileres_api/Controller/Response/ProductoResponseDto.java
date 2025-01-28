@@ -16,5 +16,7 @@ public class ProductoResponseDto {
     private String tipo;
     private Float Precio;
     private int stock;
+    private Float precioDeLista;
+
 
 }

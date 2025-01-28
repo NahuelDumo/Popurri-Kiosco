@@ -14,5 +14,6 @@ public class ProductoRequestDto {
     String tipo;
     Float precio;
     int stock;
+    Float precioDeLista;
 
 }

@@ -8,13 +8,13 @@ import java.util.List;
 
 public interface ProductoService {
 
-    ProductoResponseDto add(String nombre, Float precio, String tipo, int stock);
+    ProductoResponseDto add(String nombre, Float precio, String tipo, int stock, Float precioDeLista);
 
     List<ProductoResponseDto> alquilerFiltroCosto(Float precio);
 
     List<ProductoResponseDto> all();
 
-    public ProductoResponseDto modificar(String nombre,Float precio, int stock);
+    public ProductoResponseDto modificar(String nombre,Float precio, int stock, Float precioDeLista);
 
     public List<ProductoResponseDto>allName(String nombre);
 

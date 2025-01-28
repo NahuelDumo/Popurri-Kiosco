@@ -21,17 +21,17 @@ public class ProductoServiceImpl implements ProductoService {
 
 
     @Override
-    public ProductoResponseDto add(String nombre, Float precio, String tipo, int stock) {
+    public ProductoResponseDto add(String nombre, Float precio, String tipo, int stock, Float precioDeLista) {
 
-        Producto producto = crearProducto(nombre, precio, tipo, stock);
+        Producto producto = crearProducto(nombre, precio, tipo, stock, precioDeLista);
         Producto creado = productoRepository.save(producto);
         return productoResponseMapper.apply(creado);
 
     }
 
-    private Producto crearProducto(String nombre,  Float precio , String tipo, int stock) {
+    private Producto crearProducto(String nombre,  Float precio , String tipo, int stock, Float precioDeLista) {
 
-        return new Producto(nombre,  precio, tipo, stock);
+        return new Producto(nombre,  precio, tipo, stock, precioDeLista);
 
     }
 
@@ -49,10 +49,11 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    public ProductoResponseDto modificar(String nombre , Float precio, int stock) {
+    public ProductoResponseDto modificar(String nombre , Float precio, int stock, Float precioDeLista) {
         Producto producto = productoRepository.findByName(nombre);
         producto.setPrecio(precio);
         producto.setStock(stock);
+        producto.setPrecioDeLista(precioDeLista);
         productoRepository.save(producto);
         return productoResponseMapper.apply(producto);
     }
